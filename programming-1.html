@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days of week</title>
+    <style>
+        input{
+            width: 300px;
+            height: 60px;
+            font-size: 20px;
+        }
+        h1{
+            font-family: Verdana, sans-serif;
+        }
+        .day-name{
+            color: lime;
+            text-decoration: underline;
+            text-underline-position: under;
+        }
+        .wrong{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="days" placeholder="Day Number here">
+    <div id="demo">
+
+    </div>
+    <script>
+        document.getElementById("days").addEventListener("input",function(){
+
+        
+            var day = document.getElementById("days").value;
+            var dayname;
+            if(day == 1){
+                dayname= "Saturday";
+                document.getElementById("demo").innerHTML= "<h1>Today is <span class='day-name'>"+ dayname+"</span></h1>";
+            }
+            else if(day == 2){
+                dayname= "Sunday";
+                document.getElementById("demo").innerHTML= "<h1>Today is <span class='day-name'>"+ dayname+"</span></h1>";
+            }
+            else if(day == 3){
+                dayname= "Monday";
+                document.getElementById("demo").innerHTML= "<h1>Today is <span class='day-name'>"+ dayname+"</span></h1>";
+            }
+            else if(day == 4){
+                dayname= "Tuesday";
+                document.getElementById("demo").innerHTML= "<h1>Today is <span class='day-name'>"+ dayname+"</span></h1>";
+            }
+            else if(day == 5){
+                dayname="Wednesday";
+                document.getElementById("demo").innerHTML= "<h1>Today is <span class='day-name'>"+ dayname+"</span></h1>";
+            }
+            else if(day == 6){
+                dayname= "Thursday";
+                document.getElementById("demo").innerHTML= "<h1>Today is <span class='day-name'>"+ dayname+"</span></h1>";
+            }
+            else if(day == 7){
+                dayname= "Friday";
+                document.getElementById("demo").innerHTML= "<h1>Today is <span class='day-name'>"+ dayname+"</span></h1>";
+            }
+            else{
+                document.getElementById("demo").innerHTML= "<h1>The Number is <span class='wrong'>Wrong!</span></h1>";
+            }
+            })
+
+    </script>
+</body>
+</html>

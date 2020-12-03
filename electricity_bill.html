@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill</title>
+    <style>
+        #demo{
+            margin-top: 50px;
+        }
+        table,tr,th,td{
+            border: 2px solid gray;
+            border-collapse: collapse;
+        }
+        th,td{
+            padding: 8px;
+            font-family: verdana,sans-serif;
+            font-size: 22px;
+            font-weight: 900;
+            text-align: center;
+        }
+        th{
+            color: #192844;
+        }
+        td{
+            color: lime;
+        }
+        .wrong{
+            color: red;
+            text-decoration: underline;
+            text-underline-position: under;
+        }
+        .null{
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <input type="number" id="units" placeholder="Type Units Here">
+    <section id="demo">
+
+    </section>
+    <script>
+        document.getElementById("units").addEventListener("input",function(){
+            var units=document.getElementById("units").value;
+            var total;
+            var vat;
+            var result;
+
+            if(units>=0 && units<=50){
+                total = units*0.50;
+                vat = (total*20)/100;
+                result = total+vat;
+                
+                document.getElementById("demo").innerHTML="<table><tr><th>Bill Without VAT</th><th>VAT</th><th>Bill With VAT</th></tr><tr><td>"+total+"</td><td>"+vat+"</td><td>"+result+"</td></tr> </table>";
+            }
+            else if(units>50 && units<=150){
+                total = (50*0.50) + ((units-50)*0.75);
+                vat = vat = (total*20)/100;
+                result =total+vat;
+                document.getElementById("demo").innerHTML="<table><tr><th>Bill Without VAT</th><th>VAT</th><th>Bill With VAT</th></tr><tr><td>"+total+"</td><td>"+vat+"</td><td>"+result+"</td></tr> </table>";
+            }
+            else if(units>150 && units<=250){
+                total = (50*0.50) + (100*0.75) + ((units-150)*1.20);
+                vat = (total*20)/100;
+                result =total+vat;
+                document.getElementById("demo").innerHTML="<table><tr><th>Bill Without VAT</th><th>VAT</th><th>Bill With VAT</th></tr><tr><td>"+total+"</td><td>"+vat+"</td><td>"+result+"</td></tr> </table>";
+            }
+            else if(units>250){
+                total = (50*0.50) + (100*0.75) + (100*1.20) + ((units-250)*1.50);
+                vat = (total*20)/100;
+                result =total+vat;
+                document.getElementById("demo").innerHTML="<table><tr><th>Bill Without VAT</th><th>VAT</th><th>Bill With VAT</th></tr><tr><td>"+total+"</td><td>"+vat+"</td><td>"+result+"</td></tr> </table>";
+            }
+            else{
+                document.getElementById("demo").innerHTML = "<h1>You Entered  <span  class='wrong'>Negative Value !</span></h1>";
+            }
+
+        })
+    </script>
+</body>
+</html>
